@@ -1,5 +1,8 @@
 # nodetool-cleanup
-Small program using zookeeper to coordinate scylla and cassandra nodetool cleanups across hosts in a cluster
+Small program using zookeeper to coordinate scylla and cassandra nodetool cleanups across hosts in a cluster. Assumes you already have a zookeeper server. Example of how to run it from cron: 
+
+38 3 * * sun,wed root command -p time -o /tmp/nodetool_compact.out nodetool compact
+30 23 1 * * root /usr/local/sbin/run_nodetool_repair zk_server:2181 scylla_cluster_name > /tmp/run_nodetool_repair.out 2>&1
 
 To compile:
 
